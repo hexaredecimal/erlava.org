@@ -1,0 +1,112 @@
+<div class="container py-10 px-10 mx-0 min-w-full grid grid-cols-5 gap-3 place-items-center" className="contactdiv">
+  <div class="col-span-2">
+    <h2 class="text-5xl text-black text-center">Erlava Tutorial</h2>
+    <br />
+    <p class="text-center text-black">Welcome to the Tutorial</p>
+  </div>
+  <div class="col-span-3">
+    <img
+        hx-get="/lizzard"
+        hx-swap="outerHTML"
+        hx-trigger="load delay:0.1ms"
+        src=""
+          class="h-45 w-45">
+  </div>
+</div>
+
+<div class="flex items-center justify-center">
+  <br><br>
+  <p class="text-3xl">Erlang Awakens <p>
+  <p class="text-4xl">|</p>
+  <p class="text-3xl">Introduction</p>
+</div>
+<br><br>
+
+<div class="grid grid-cols-5 gap-3"> 
+    <div class="p-5 flex shadow-xl items-center h-full bg-gray-200 text-2xl col-span-3">
+      <p>
+Behold, Erlava! A mighty language forged in the fires of Java,
+yet imbued with the spirit of Erlang's concurrency.
+
+Erlava, a general-purpose language, rises from the ashes to conquer the realm of distributed applications.
+
+Built upon the bedrock of Java, Erlava leverages its robust libraries and tooling.
+But fear not, for Erlava speaks a different tongue, one inspired by Erlang's elegance for handling concurrency.
+    </p>
+    </div>
+    <div class="p-1 shadow-xl text-2xl flex h-full bg-orange-100 col-span-2">
+Interpreted by a cunning runtime, Erlava's code flows freely, unburdened by the shackles of compilation.
+An extensive standard library, a cornucopia of functionality, awaits your command.
+
+Embrace Erlava, and build applications that scale to the heavens,
+applications that dance across a multitude of machines,
+applications that are truly concurrent!
+    </div>
+</div>
+
+<br><br>
+
+<div class="flex items-center justify-center">
+  <br><br>
+  <p class="text-3xl">Eruption<p>
+  <p class="text-4xl">|</p>
+  <p class="text-3xl">Hello world</p>
+</div>
+
+<br>
+<div class="container py-10 px-10 mx-0 min-w-full grid">
+    <p class="text-1xl text-center">This tutorial will guide you through creating a simple "Hello, World!" program in Erlava.</p><br>
+    <p> Erlava, inspired by Erlang, utilizes a slightly different syntax for module definitions and comments. 
+    Here's a breakdown of the key differences:</p>
+  <br>
+  <ul>
+    <li>
+      <b>-opt()</b> and </b>-doc()</b>: Erlava uses -opt() and -doc() annotations at the top level after 
+    the module declaration to specify module options and documentation, respectively.
+    </li>
+    <li>
+      <b>Entry Point</b>: The main function serves as the program's entry point.
+    </li>
+    <li>
+      <b>Formatting</b>: Erlava follows C-style formatting, using placeholders like %s for strings and %d for integers.
+    </li>
+  </ul>
+  <br>
+
+
+  <div class="p-1 shadow-xl flex h-full w-full place-self-center place-items-center bg-orange-100 col-span-2">
+    <pre class="language-erlang w-full">
+      <code class="language-erlang">
+  % This module defines a simple hello world program
+  -module(hello_world).
+
+  % Docstring explaining the module's functionality
+  -doc("This module prints 'Hello, World!' to the console.").
+
+  % Entry point of the program
+  main() ->
+    % Print "Hello, World!" to the console
+    io:writeln("Hello, World!").
+      </code>
+    </pre>
+  </div>
+</div>
+
+
+<div 
+  class="p-5 grid grid-cols-9 mx-auto my-auto gap-5 items-center rounded-md shadow-sm">
+  <button class="bg-gray-100 hover:bg-gray-50 text-white-200 rounded-xl">One</button>
+  <button class="bg-gray-100 hover:bg-gray-50 text-white-200 rounded-xl">Two</button>
+  <button class="bg-gray-100 hover:bg-gray-50 text-white-200 rounded-xl">Three</button>
+  <button class="bg-gray-100 hover:bg-gray-50 text-white-200 rounded-xl">Four</button>
+  <button class="bg-gray-100 hover:bg-gray-50 text-white-200 rounded-xl">Five</button>
+  <button class="bg-gray-100 hover:bg-gray-50 text-white-200 rounded-xl">Six</button>
+  <button class="bg-gray-100 hover:bg-gray-50 text-white-200 rounded-xl">Seven</button>
+  <button class="bg-gray-100 hover:bg-gray-50 text-white-200 rounded-xl">Eight</button>
+  <button class="bg-gray-100 hover:bg-gray-50 text-white-200 rounded-xl">Nine</button>
+  <button class="bg-gray-100 hover:bg-gray-50 text-white-200 rounded-xl">Ten</button>
+
+</div>
+
+
+

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Erlava | Home </title>
+    <meta charset="UTF-8">
+		<script src="https://unpkg.com/htmx.org@2.0.0"></script>
+    <link rel="stylesheet" href="https://unpkg.com/mustard-ui@latest/dist/css/mustard-ui.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.13.0/themes/prism.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.13.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.13.0/plugins/normalize-whitespace/prism-normalize-whitespace.js"></script>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Mustard UI -->
+
+<style>
+.fade-out.htmx-swapping {
+  opacity: 0;
+  transition: opacity 1s ease-out;
+}
+</style>
+  </head>
+  <body>
+
+		<!-- component -->
+<nav class="fixed w-full bg-gray-200 shadow shadow-gray-300 w-100 px-8 md:px-auto">
+	<div class="md:h-16 h-28 mx-auto md:px-4 container flex items-center justify-between flex-wrap md:flex-nowrap">
+		<!-- Logo -->
+		<div class="md:order-1">
+			<div
+        hx-get="/logo"
+        hx-swap="outerHTML"
+        hx-trigger="load delay:0.1ms"
+            ></div>
+		</div>
+		<div class="text-gray-500 order-3 w-full md:w-auto md:order-2">
+			<ul class="flex font-semibold justify-between">
+                <!-- Active Link = text-indigo-500
+                Inactive Link = hover:text-indigo-500 -->
+        <li class="md:px-4 md:py-2 text-orange-500"><a href="/">
+          <i class="fa-solid fa-volcano"></i>
+              Erlava</a></li>
+				<li
+          hx-get="/tutorial"
+          hx-target="#main"
+          hx-swap="outerHTML swap:1s"
+              class="md:px-4 md:py-2 hover:text-orange-400"><a href="#">
+          <i class="fa-solid fa-book"></i>
+              Tutorial</a></li>
+				<li class="md:px-4 md:py-2 hover:text-orange-400"><a href="#">
+          <i class="fa-solid fa-code"></i>
+              Examples</a></li>
+				<li class="md:px-4 md:py-2 hover:text-orange-400"><a href="#">
+          <i class="fa-solid fa-download"></i>
+              Downloads</a></li>
+				<li class="md:px-4 md:py-2 hover:text-orange-400"><a href="#">
+          <i class="fa-regular fa-newspaper"></i>
+              Updates</a></li>
+			</ul>
+		</div>
+		<div class="order-2 md:order-3">
+			<button class="px-4 py-2 bg-orange-500 hover:bg-orange-600 text-gray-50 rounded-xl flex items-center gap-2">
+ <img class="htmx-indicator" src="/spinner.gif">               <!-- Heroicons - Login Solid -->
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M3 3a1 1 0 011 1v12a1 1 0 11-2 0V4a1 1 0 011-1zm7.707 3.293a1 1 0 010 1.414L9.414 9H17a1 1 0 110 2H9.414l1.293 1.293a1 1 0 01-1.414 1.414l-3-3a1 1 0 010-1.414l3-3a1 1 0 011.414 0z" clip-rule="evenodd" />
+                </svg>
+                <span>Login</span>
+            </button>
+		</div>
+	</div>
+</nav>
+
+<content id="main">
+ <div class="container py-10 px-10 mx-0 min-w-full grid place-items-center" className="contactdiv">
+		<img
+        hx-get="/img"
+        hx-swap="outerHTML"
+        hx-trigger="load delay:0.1ms"
+				src=""
+          class="h-45 w-45">
+        </img>
+    <h2 class="text-5xl text-black text-center">Erlava</h2>
+    <br />
+		<p class="text-center text-black">A modern take on Erlang</p>
+    <button
+				hx-post="/visitors"
+				hx-swap="outerHTML"
+				class="bg-orange-500 hover:bg-orange-600 text-gray-50 rounded-xl font-bold py-2 px-4 mt-3 rounded items-center">
+    Visitors</button>
+  </div>
+
+  <div class="grid grid-cols-5 gap-3"> 
+    <div class="p-5 flex shadow-xl items-center h-full bg-gray-200 text-2xl col-span-3">
+      <p>
+        Erlava is a general purpose language for building distributed systems. 
+        The language draws inspriation from Erlang and leverages java as the underlying language.
+        Erlava is an interpreted language but it has bytecode support. The language is simple to use 
+        and comes packed with a full set of libraries that can be used to build your own applications.
+      </p>
+    </div>
+    <div class="p-1 shadow-xl flex h-full bg-orange-100 col-span-2">
+<pre class="language-erlang w-4/5 ">
+  <code class="language-erlang">
+  -module(main).
+  -opt().
+  -doc("Hello, world").
+
+  main() -> 
+    io:writeln("Hello, world").
+  </code>
+</pre>
+    </div>
+</div>
+
+
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+
+</content>
+		
+  </body>
+</html>
