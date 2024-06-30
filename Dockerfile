@@ -6,7 +6,7 @@ ENV DEBIAN_FRONTEND=noninteractive
 
 # Install necessary packages: git and JDK 17
 RUN apt-get update && \
-    apt-get install -y git openjdk-17-jdk && \
+    apt-get install -y git openjdk-17-jdk vim && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
