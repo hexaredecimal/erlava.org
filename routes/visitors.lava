@@ -1,0 +1,25 @@
+%% ============================
+%% File: visitors.lava
+%% Description: visitors route for erlava.org
+%% Author: Gama Sibusiso
+%% Date: 07/03/2024
+%% ============================
+
+-module(visitors). 
+-opt().
+-doc("Route for /visitors").
+
+route(Server) -> 
+  HelloRoute = http:inet_create_context(Server, "/visitors"),
+  http:inet_add_handler(
+    HelloRoute, 
+    def(Exchange) ->
+			Msg = "<h1 hx-get=\"/restore_btn\" hx-swap=\"outerHTML\" hx-trigger=\"load delay:3s\">" + Count + " Visitors so far</h1>",
+			http:send_exchange_response_header(Exchange, 200, string:length(Msg)),
+      http:write_stream(Exchange, Msg),
+      ok. 
+    end
+  ).
+
+
+

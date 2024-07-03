@@ -1,0 +1,24 @@
+%% ============================
+%% File: tut.lava
+%% Description: tutorials route for erlava.org
+%% Author: Gama Sibusiso
+%% Date: 07/03/2024
+%% ============================
+
+-module(tutorial). 
+-opt().
+-doc("Route for /tutorial").
+
+route(Server) ->
+  DefaultRoute = http:inet_create_context(Server, "/tutorial"),
+	http:inet_add_handler(
+		DefaultRoute, 
+		def(Exchange) -> 
+			Count = Count + 1,
+			Msg = "<content id=\"main\">" + file:read("tutorials/index.html") + "</content>",
+			http:send_exchange_response_header(Exchange, 200, string:length(Msg)),
+			http:write_stream(Exchange, Msg),
+			ok. 
+		end
+	).
+

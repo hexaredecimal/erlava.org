@@ -1,0 +1,25 @@
+%% ============================
+%% File: logo.lava
+%% Description: logo image loading route for erlava.org
+%% Author: Gama Sibusiso
+%% Date: 07/03/2024
+%% ============================
+
+
+-module(visitors). 
+-opt().
+-doc("Route for /logo").
+
+route(Server) -> 
+  HelloRoute = http:inet_create_context(Server, "/logo"),
+  http:inet_add_handler(
+    HelloRoute, 
+    def(Exchange) ->
+      Data = file:read("images/image.data"),
+      Msg = "<img class=\"h-10 w-10\" " + Data,
+      http:send_exchange_response_header(Exchange, 200, string:length(Msg)),
+      http:write_stream(Exchange, Msg),
+      ok. 
+    end
+  ).
+

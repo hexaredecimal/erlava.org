@@ -1,0 +1,24 @@
+%% ============================
+%% File: lizz.lava
+%% Description: lizzard image loading route for erlava.org
+%% Author: Gama Sibusiso
+%% Date: 07/03/2024
+%% ============================
+
+-module(lizz). 
+-opt().
+-doc("Route for /lizzard").
+
+
+route(Server) -> 
+  HelloRoute = http:inet_create_context(Server, "/lizzard"),
+  http:inet_add_handler(
+    HelloRoute, 
+    def(Exchange) ->
+      Data = file:read("images/lizzard.data"),
+      Msg = "<img class=\"h-47 w-47\" " + Data,
+      http:send_exchange_response_header(Exchange, 200, string:length(Msg)),
+      http:write_stream(Exchange, Msg),
+      ok. 
+    end
+  ).
