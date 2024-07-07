@@ -1,0 +1,17 @@
+-module(literals). 
+-opt().
+-doc("Route for /literals").
+
+%% Route setup
+route(Server) ->
+  DefaultRoute = http:inet_create_context(Server, "/literals"),
+	http:inet_add_handler(
+		DefaultRoute, 
+		def(Exchange) -> 
+			Count = Count + 1,
+			Msg = "<div id=\"md\">" + file:read("tutorials/literals.html") + "</div>",
+			http:send_exchange_response_header(Exchange, 200, string:length(Msg)),
+			http:write_stream(Exchange, Msg),
+			ok. 
+		end
+	).

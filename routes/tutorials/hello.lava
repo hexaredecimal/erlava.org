@@ -1,0 +1,17 @@
+-module(hello). 
+-opt().
+-doc("Route for /hello").
+
+%% Route setup
+route(Server) ->
+  DefaultRoute = http:inet_create_context(Server, "/hello"),
+	http:inet_add_handler(
+		DefaultRoute, 
+		def(Exchange) -> 
+			Count = Count + 1,
+			Msg = "<div id=\"md\">" + file:read("tutorials/hello.html") + "</div>",
+			http:send_exchange_response_header(Exchange, 200, string:length(Msg)),
+			http:write_stream(Exchange, Msg),
+			ok. 
+		end
+	).
