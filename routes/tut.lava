@@ -7,10 +7,12 @@
 
 -module(tutorial). 
 -opt().
--doc("Route for /tutorial").
+-doc("Route for /tutorials").
 
+
+%% Route setup
 route(Server) ->
-  DefaultRoute = http:inet_create_context(Server, "/tutorial"),
+  DefaultRoute = http:inet_create_context(Server, "/tutorials"),
 	http:inet_add_handler(
 		DefaultRoute, 
 		def(Exchange) -> 
