@@ -19,6 +19,8 @@
 -import(restorebtn).
 -import(tut).
 -import(visitors).
+-import(hello).
+-import(literals).
 
 %% ============================
 %% Globals
@@ -39,7 +41,9 @@ create_handlers(Server) ->
   logo:route(Server),
   restorebtn:route(Server),
   tut:route(Server), 
-  visitors:route(Server).
+  visitors:route(Server), 
+  hello:route(Server),
+  literals:route(Server).
 
 %% ============================
 %% Entry function
