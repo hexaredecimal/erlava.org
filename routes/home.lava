@@ -14,7 +14,6 @@ route(Server) ->
 	http:inet_add_handler(
 		DefaultRoute, 
 		def(Exchange) -> 
-			Count = Count + 1,
 			Msg = file:read("index.html"),
 			http:send_exchange_response_header(Exchange, 200, string:length(Msg)),
 			http:write_stream(Exchange, Msg),
