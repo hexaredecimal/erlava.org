@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.13.0/themes/prism.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.13.0/prism.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.13.0/plugins/normalize-whitespace/prism-normalize-whitespace.js"></script>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.35.2/ace.min.js" integrity="sha512-yAnvECNg9QuDHCVysxX2c3yFOs9HtBfmnHpVLxGtg7DWYN9dYzEMjZm1GnBF4t60I6ny1xW1Al8owfna4QdGtQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- Mustard UI -->
@@ -24,8 +24,14 @@
   </head>
   <body>
 
+  <!-- Triggers a page visitor after the first 10 seconds -->
+  <div
+    hx-get="/visit"
+    hx-swap="outerHTML"
+    hx-trigger="load delay:3s"
+        ></div>
 		<!-- component -->
-<nav class="fixed w-full bg-gray-200 shadow shadow-gray-300 w-100 px-8 md:px-auto">
+<nav class="fixed w-full bg-gray-200 shadow shadow-gray-300 w-100 px-8 md:px-auto z-10">
 	<div class="md:h-16 h-28 mx-auto md:px-4 container flex items-center justify-between flex-wrap md:flex-nowrap">
 		<!-- Logo -->
 		<div class="md:order-1">
@@ -45,13 +51,17 @@
 				<li
           hx-get="/tutorials"
           hx-target="#main"
-          hx-swap="outerHTML swap:1s"
+          hx-swap="outerHTML"
               class="md:px-4 md:py-2 hover:text-orange-400"><a href="#">
           <i class="fa-solid fa-book"></i>
               Tutorial</a></li>
-				<li class="md:px-4 md:py-2 hover:text-orange-400"><a href="#">
+				<li 
+          hx-get="/try"
+          hx-target="#main"
+          hx-swap="outerHTML"
+              class="md:px-4 md:py-2 hover:text-orange-400"><a href="#">
           <i class="fa-solid fa-code"></i>
-              Examples</a></li>
+              Try it!</a></li>
 				<li class="md:px-4 md:py-2 hover:text-orange-400"><a href="#">
           <i class="fa-solid fa-download"></i>
               Downloads</a></li>
@@ -62,12 +72,9 @@
 		</div>
 		<div class="order-2 md:order-3">
 			<button class="px-4 py-2 bg-orange-500 hover:bg-orange-600 text-gray-50 rounded-xl flex items-center gap-2">
- <img class="htmx-indicator" src="/spinner.gif">               <!-- Heroicons - Login Solid -->
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                <path fill-rule="evenodd" d="M3 3a1 1 0 011 1v12a1 1 0 11-2 0V4a1 1 0 011-1zm7.707 3.293a1 1 0 010 1.414L9.414 9H17a1 1 0 110 2H9.414l1.293 1.293a1 1 0 01-1.414 1.414l-3-3a1 1 0 010-1.414l3-3a1 1 0 011.414 0z" clip-rule="evenodd" />
-                </svg>
-                <span>Login</span>
-            </button>
+        <i class="fa-solid fa-envelope"></i>
+        <span>Newsletter</span>
+      </button>
 		</div>
 	</div>
 </nav>
