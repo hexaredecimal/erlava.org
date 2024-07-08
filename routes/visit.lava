@@ -1,0 +1,17 @@
+
+-module(visit). 
+-opt().
+-doc("Route for /visit").
+
+route(Server) -> 
+  HelloRoute = http:inet_create_context(Server, "/visit"),
+  http:inet_add_handler(
+    HelloRoute, 
+    def(Exchange) ->
+			Count = Count + 1,
+			Msg = "<div><div>",
+			http:send_exchange_response_header(Exchange, 200, string:length(Msg)),
+      http:write_stream(Exchange, Msg),
+      ok. 
+    end
+  ).
