@@ -1,0 +1,26 @@
+%% ============================
+%% File: try.lava
+%% Description: source compiler route for erlava.org
+%% Author: Gama Sibusiso
+%% Date: 07/03/2024
+%% ============================
+
+-module(try). 
+-opt().
+-doc("Route for /try").
+
+
+%% Route setup
+route(Server) ->
+  DefaultRoute = http:inet_create_context(Server, "/try"),
+	http:inet_add_handler(
+		DefaultRoute, 
+		def(Exchange) -> 
+			Count = Count + 1,
+			Msg = "<content id=\"main\">" + file:read("try/index.html") + "</content>",
+			http:send_exchange_response_header(Exchange, 200, string:length(Msg)),
+			http:write_stream(Exchange, Msg),
+			ok. 
+		end
+	).
+
