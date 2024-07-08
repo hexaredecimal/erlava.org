@@ -17,10 +17,17 @@
 -import(lizz).
 -import(logo).
 -import(restorebtn).
--import(tut).
+-import(visit).
 -import(visitors).
+
+%% tutorials handlers 
+-import(tut).
 -import(hello).
 -import(literals).
+-import(functions).
+
+%% online compiler handlers 
+-import(try).
 
 %% ============================
 %% Globals
@@ -42,8 +49,11 @@ create_handlers(Server) ->
   restorebtn:route(Server),
   tut:route(Server), 
   visitors:route(Server), 
+  visit:route(Server), 
   hello:route(Server),
-  literals:route(Server).
+  literals:route(Server),
+  try:route(Server),
+  functions:route(Server).
 
 %% ============================
 %% Entry function
